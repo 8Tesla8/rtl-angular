@@ -1,0 +1,12 @@
+.direction{
+    text-align: start;
+}
+
+.btn {
+    height: 50px;
+    width: 200px;
+}
+
+.section[dir= "rtl"]{
+    text-align: left;
+}
