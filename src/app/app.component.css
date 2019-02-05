@@ -7,6 +7,7 @@
     width: 200px;
 }
 
-.section[dir= "rtl"]{
+section[dir = "rtl"]{
     text-align: left;
+    color: red
 }
