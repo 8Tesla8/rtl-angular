@@ -1,27 +1,47 @@
 # RtlAngular
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 6.1.3.
+rtl text align in css
 
-## Development server
+.direction{
+    text-align: start;
+}
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
 
-## Code scaffolding
+specific css style which will be different in rtl
+section[dir = "rtl"]{
+    text-align: left;
+    color: red
+}
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+// class which will define text direction 
+export class TextDirectionController {
 
-## Build
+    public textDirection: string;
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
+    constructor() {
+        this.CheckDiriction();
+    }
 
-## Running unit tests
+    public CheckDiriction(): void {
+        const lang = localStorage.getItem('lang');
+        if (lang === 'he') { // he - hebrew language
+            this.textDirection = 'rtl';
+        } else {
+            this.textDirection = 'ltr';
+        }
+    }
+}
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+//how use it in component
+export class AppComponent {
+  title = 'rtlAngular';
 
-## Running end-to-end tests
+  public directionController = new TextDirectionController();
+}
 
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
+//in HTML
+<section [dir] = "directionController.textDirection">
+  <button class="btn">Text</button>
+  <p> Text in section</p>
+</section>
 
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
