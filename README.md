@@ -32,12 +32,12 @@ export class TextDirectionController {
     }
 }
 
-//how use it in component
-export class AppComponent {
-  title = 'rtlAngular';
+//how use it in component   
+export class AppComponent {     
+  title = 'rtlAngular';    
 
-  public directionController = new TextDirectionController();
-}
+  public directionController = new TextDirectionController();  
+}  
 
 //in HTML
 <section [dir] = "directionController.textDirection">
